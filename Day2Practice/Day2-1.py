@@ -1,0 +1,5 @@
+print(type("abcd"))
+print(type(123))
+print(type(False))
+print(type([2,"asdas"]))
+print("Number of letters in your name"+ str(len(input("Write yourname"))))
