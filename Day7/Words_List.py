@@ -1,0 +1,1 @@
+word=["camel","bunny", "cat", "panda"]
