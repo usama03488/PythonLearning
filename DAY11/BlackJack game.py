@@ -33,7 +33,7 @@ def Player_Turn():
         print("you are not gettin any card")
         return
 def Dealer_Turn():
-    value=random.randint(0,1)
+    value=0
     if (value == 0):
         card3 = Assign_card()
         return card3
@@ -69,7 +69,9 @@ print(f" dealer card is {Dealer_card[0]}")
 card3=Player_Turn()
 Holding_cards.append(card3)
 Player_score=calculate_score(Holding_cards,Cards_score)
-dealer_card3=Dealer_Turn()
+if(dealer_Score!=0 and dealer_score<17):
+    dealer_card3 = Dealer_Turn()
+
 if(dealer_card3 != None):
     Dealer_card.append(dealer_card3)
 
