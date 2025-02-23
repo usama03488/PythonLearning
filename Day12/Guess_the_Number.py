@@ -33,6 +33,7 @@ def Guess_fail():
     global TRIES
     if (TRIES>1):
         TRIES -=1
+        print(f"you have {TRIES} attempts left")
         Get_GuessNumber()
     else:
         print("you failed to guess the word")
@@ -40,7 +41,8 @@ def Guess_fail():
 Guessing_number=0
 print(logo)
 Game_MODE=-1
+print("Welcome to number guessing game \n I am thinking of a number bwtween 1 to 100")
 TRIES=get_GameMode()
-print(f"here are the tries {TRIES} and Game mode {GAME_MODE}")
+print(f"You have {TRIES} to guess a number")
 set_GuessWord()
 Get_GuessNumber()
