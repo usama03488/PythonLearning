@@ -6,29 +6,28 @@ import random
 
 def Select_random_number():
     index = random.randint(0, len(higher_lower_data)-1)
-    print(f"index of data point {index}")
+
     return index
 
 def GetPlayer_input():
     Input_option= input("Guess which one have more followers \n Enter 'A' for first item and 'B' fro second item")
     Input_option=Input_option.lower()
-    print(f"input: {Input_option}")
+
     if(Input_option not in ["a", "b"]):
         print("You enter wrong input try again: You loose" )
     else:
-        print("you enter right entry")
         return Input_option
 
 def Check_PlayerInput(input,item1, item2):
     if(input=='a'):
         if(item1["followers"]>item2["followers"]):
-            print("you have selected the correct item1")
+
             return item1
         else:
             return False
     else:
         if (item1["followers"] < item2["followers"]):
-            print("you have selected the correct item2")
+
             return item2
         else:
             return False
@@ -39,19 +38,24 @@ def Display_messages(item1,item2):
 
 score=0
 print("Welcome to higher-lower number game")
-item1 =higher_lower_data[Select_random_number()]
+
 # we will get two items to compare for the first time
 item2 =higher_lower_data[Select_random_number()]
 iswronged=False
+item1=item2
 while(iswronged ==False):
+    item2 = higher_lower_data[Select_random_number()]
+    if item1== item2:
+        item2 = higher_lower_data[Select_random_number()]
     Display_messages(item1, item2)
     player_input = GetPlayer_input()
     status = Check_PlayerInput(player_input, item1, item2)
     if not isinstance(status, bool):
-        print("it is a list so it means you have pridicted the correct option")
+
         score += 1
-        item1 = status
-        item2 = higher_lower_data[Select_random_number()]
+        print(f"Score: {score}")
+        item1=status
+
     else:
         print("You have guessed it wrong \n **************GAME END*****************")
         iswronged = True
