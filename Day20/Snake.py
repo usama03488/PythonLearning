@@ -15,6 +15,7 @@ class Snake():
         self.Create_Snake()
         self.head=self.Snake_seg[0]
 
+
     def Create_Snake(self):
         X_offset = 0
         for _ in range(3):
@@ -27,6 +28,19 @@ class Snake():
             new_pos = [position[0] - X_offset, position[1]]
             turtle_1.goto(new_pos[0], new_pos[1])
             self.Snake_seg.append(turtle_1)
+    #we have to extend a snake fro that we have to create and instance on snake and add it in to snake artrat
+    def Extend_Snake(self):
+        snake=Turtle()
+        snake.shape("square")
+        snake.color("white")
+        snake.penup()
+        init_positon=self.Snake_seg[-1].position()
+        offset = 10
+        new_pos = [init_positon[0] - offset, init_positon[1]]
+        snake.goto(new_pos[0], new_pos[1])
+        self.Snake_seg.append(snake)
+        print("Snake extended")
+
 
     def Move(self):
 
