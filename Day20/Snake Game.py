@@ -4,7 +4,14 @@ import time
 from Snake import Snake
 from Food import Food
 from Scoreboard import scoreboard
+#file=open("D:\Python Practice\DAY1-Practice\Day20\my_file.txt") there are two wayd to open file
+#by default file open in read mode but we can change it to write by writing mode=w: "a" stand for append
+with open("new_file.txt", mode="a") as file:
+    file.write("no is not the best time")
 
+    # by this technique we no longer have to close the file
+
+#file.close()
 my_screen = Screen()
 my_screen.tracer(0)
 snake=Snake()
@@ -31,12 +38,12 @@ while IsGameon:
     if(snake.head.distance(food)<15):
         print("nom nom nom")
         snake.Extend_Snake()
-        scoreboard.update_scoreboard(1)
+        scoreboard.increase_score()
         food.New_Food()
     if(snake.head.xcor()>280 or snake.head.xcor()<-280 or snake.head.ycor()>280 or snake.head.ycor()<-280):
-        print("Game Over")
-        IsGameon=False
-        scoreboard.game_over()
+
+        scoreboard.reset_score()
+        snake.reset()
         #this is the collision dectection code without using slicing
     # for segments in snake.Snake_seg:
     #     if( snake.head!= segments and  snake.head.distance(segments)<10):
@@ -51,9 +58,8 @@ while IsGameon:
     #for example sliving_1[1:5:-1] in this third value is the increment amount in the current example slicing will be done with an increment of 1 but its direction will be from end to start
     for segments in snake.Snake_seg[1:]:
         if(  snake.head.distance(segments)<10):
-            print("Game Over")
-            IsGameon=False
-            scoreboard.game_over()
+            scoreboard.reset_score()
+            snake.reset()
 
 
 

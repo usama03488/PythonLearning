@@ -13,7 +13,13 @@ class Snake():
     def __init__(self):
         self.Snake_seg = []
         self.Create_Snake()
-        self.head=self.Snake_seg[0]0
+        self.head=self.Snake_seg[0]
+    def reset(self):
+        for seg in self.Snake_seg:
+            seg.goto(1000,1000)
+        self.Snake_seg.clear()
+        self.Create_Snake()
+        self.head = self.Snake_seg[0]
 
 
     def Create_Snake(self):
