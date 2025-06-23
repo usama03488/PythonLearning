@@ -22,9 +22,14 @@ while len(gussed_states) < 50:
     answere = screen.textinput(f"{len(gussed_states)}/50 Guessed", "What's another state name").title()
     print(answere)
     if(answere=="Exit"):
-        for state in states:
-            if state not in gussed_states:
-                missed.append(state)
+        # list comprehension
+        missed=[state for state in states if state not in gussed_states]
+# for dictionary comprehension
+        #dict= {item_key:item_value for (item_key,value) in dict.item() }
+
+        # for state in states:
+        #     if state not in gussed_states:
+        #         missed.append(state)
         print(missed)
         new_data=pandas.DataFrame(missed)
         new_data.to_csv("Gussed_states.csv")
