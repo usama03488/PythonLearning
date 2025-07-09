@@ -2,6 +2,7 @@ from tkinter import *
 import random
 from tkinter import messagebox
 import pyperclip
+import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -55,22 +56,58 @@ def Generate_pass():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_data(**kwargs):
     email=kwargs['email']
-    websitre=kwargs['website']
+    website=kwargs['website']
     password=kwargs['password']
+    new_data={
+        website:{
+            "email":email,
+            "password":password
+        }
+    }
+
     if(len(email ) >0 and len(website)>0 and len(password)>0):
         is_ok = messagebox.askokcancel(title="this is the enters data",
                                        message=f"email: {kwargs['email']} \n website: {kwargs['website']} \n password: {kwargs['password']} ")
+
+        try:
+            with open("data.json", "r") as data_file:
+                # json.dump(new_data, data_file,  indent=4)
+                # now we use load to load it
+                # read ->
+                # data=json.load(data_file)
+                # --jason update---
+                # step 1 load data/read data
+                data = json.load(data_file)
+            # step2 replace data with new data
+        except (FileNotFoundError, json.JSONDecodeError):
+            print("data is not there")
+            with open("data.json", "w") as data_file:
+
+                json.dump(new_data, data_file, indent=4)
+        else:
+
+            data.update(new_data)
+            # step3 write updated data into file
+            with open("data.json", "w") as data_file:
+
+                json.dump(data, data_file, indent=4)
     else:
         is_ok=False
         messagebox.showinfo(title="Error", message="You have some blank fields ")
 
 
+
     if is_ok == True:
-        with open("data.txt", "a") as data:
-            data.write(f"\n")
+
+
+
+
+# in day 30 we will make a jason file now and try to read and write in it
+        # with open("data.txt", "a") as data:
+        #     data.write(f"\n")
         for key, value in kwargs.items():
             print(f"{key} = {value}")
-            data.write(f"{value} |")
+            #data.write(f"{value} |")
             website_input.delete(0, END)
             Password_input.delete(0, END)
 
@@ -89,6 +126,31 @@ def save_data(**kwargs):
 
 
 
+
+
+
+
+
+
+
+def search_Credentials():
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+
+    except:
+        print("we have a empty storage")
+    else:
+        web=website_input.get()
+        if web in data:
+            values = data[web]
+            email = values["email"]
+            password = values["password"]
+            messagebox.showinfo(title="Credentials", message=f"Your data\n"
+                                                             f"Email: {email} \n"
+                                                             f"Password: {password} ")
+        else:
+            messagebox.showinfo(title="Erroe", message=f"No such website data exits in data base" )
 
 
 
@@ -119,6 +181,9 @@ website.grid(row=2,column=1)
 website_input=Entry(width=35)
 website_input.grid(column=2,row=2,columnspan=2)
 website_input.focus()
+
+search_btn=Button(text="Search",highlightthickness=0,command=search_Credentials)
+search_btn.grid(row=2,column=3)
 
 Email=Label(text= "Email/username")
 Email.grid(row=3,column=1)
