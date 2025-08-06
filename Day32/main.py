@@ -16,6 +16,7 @@ if(current_day==6):
         connection.login(user=my_email, password=password)
         connection.sendmail(from_addr=my_email, to_addrs="ossaama.shafiq@gmail.com",
                             msg= f"Subject:System generated Motivational Mail \n\n {random_message}")
+        
 
 
 
