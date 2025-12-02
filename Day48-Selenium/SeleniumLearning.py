@@ -1,15 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 #keep chrome driver open we have to use chrome_options
 chrome_options=webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach",True)
 
 
 driver=webdriver.Chrome(options=chrome_options)
-driver.get("https://www.amazon.com")
-price= driver.find_element(By.CLASS_NAME, value="a-button-text").text
-print(price)
-DocumentationLink=driver.find_element(By.CSS_SELECTOR, value="#.className #tag here") #we will use a class tag and we
+driver.get("https://www.wikipedia.org/")
+#price= driver.find_element(By.CLASS_NAME, value="a-button-text").text
+#print(price)
+#DocumentationLink=driver.find_element(By.CSS_SELECTOR, value="#.className #tag here") #we will use a class tag and we
 # can also pass any tag element which is inside that class without any name or id or class
 #----------xpath----------
 #WE CAN also use xpath to reah to any tag
@@ -17,4 +18,11 @@ DocumentationLink=driver.find_element(By.CSS_SELECTOR, value="#.className #tag h
 
 #driver.close() # this close function will only close the tab
 #driver.quit() # this quit function will close the whole browser no matter how many tabs are there
-
+# for button clicking
+#we will use Link text -> locate anchor elements whose visible text matches the search value
+#all_elements=driver.find_element(BY.LINK_TEXT,VALUE="content portals")
+#all_elements.click()
+search=driver.find_element(By.NAME,value="search")
+search.send_keys("unity engine",Keys.ENTER)
+#btn=driver.find_element(By.CLASS_NAME, value="pure-button")
+#btn.click()
