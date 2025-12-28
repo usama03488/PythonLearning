@@ -37,6 +37,7 @@ class InternetSpeedTwitterBot:
     def tweet_at_provider(self):
         self.driver.get("https://x.com/i/flow/login")
         sleep(2)
+        wait = WebDriverWait(self.driver, 15)
         email=wait.until(ec.presence_of_element_located((By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/div[4]/label/div/div[2]/div/input')))
         password = self.driver.find_element(By.XPATH,
                                             value='//*[@id="react-root"]/div/div/div[2]/main/div/div/div[1]/form/div/div[2]/label/div/div[2]/div/input')
