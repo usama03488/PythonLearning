@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ossaama Shafiq | Senior Game Engineer</title>
+    <link rel="stylesheet" href="static/Style.css">
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div id="particles"></div>
+    <header class="hero">
+        <div class="hero-content">
+            <img src="static/My-Pic.jpeg" alt="Profile" class="profile-img">
+            <h1>Muhammad Ossaama Shafiq</h1>
+            <p>Senior Game Engineer | VR / AR Developer</p>
+            <p>📍 Saudi Arabia | 🇵🇰 Pakistani</p>
+        </div>
+
+    </header>
+
+    <section class="fade-in">
+        <h2>Profile</h2>
+        <div class="card">
+            <p>
+                Senior Game Engineer with 4+ years of experience in developing immersive
+                VR, AR, and mobile game applications using Unity. Strong expertise in
+                performance optimization, multiplayer systems, and scalable architecture.
+                Passionate about building high-quality interactive experiences.
+            </p>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2>Key Skills</h2>
+        <div class="card skills">
+            <div class="skill">Unity 3D</div>
+            <div class="skill">VR / AR</div>
+            <div class="skill">C#</div>
+            <div class="skill">Photon PUN</div>
+            <div class="skill">Firebase</div>
+            <div class="skill">HDRP / URP</div>
+            <div class="skill">Design Patterns</div>
+            <div class="skill">Multiplayer</div>
+            <div class="skill">Blender</div>
+            <div class="skill">Figma UI</div>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2>Work Experience</h2>
+
+        <div class="card experience">
+            <h3>Senior Game Engineer — Quantum Edge LLC</h3>
+            <p class="date">May 2025 – Present</p>
+            <ul>
+                <li>Developed AR and VR applications with Google Sign-In and QR scanning.</li>
+                <li>Designed UI panels using Figma for better UX consistency.</li>
+                <li>Led multiple VR projects and supervised development teams.</li>
+                <li>Created 3D models with texturing using Blender.</li>
+            </ul>
+        </div>
+
+        <div class="card experience">
+            <h3>Unity Game Developer — Portsea Games</h3>
+            <p class="date">Jul 2024 – Jun 2025</p>
+            <ul>
+                <li>Developed VR apps and mobile games using HDRP & URP.</li>
+                <li>Implemented Singleton, Observer, and Factory patterns.</li>
+                <li>Optimized VR and mobile performance.</li>
+                <li>Integrated multiplayer using Photon PUN.</li>
+            </ul>
+        </div>
+
+        <div class="card experience">
+            <h3>VR Developer — Xrev Studios</h3>
+            <p class="date">Jun 2023 – Feb 2024</p>
+            <ul>
+                <li>Implemented immersive character animations in VR.</li>
+                <li>Integrated Firebase (Auth, Database, Analytics).</li>
+                <li>Developed cross-platform VR apps (iOS, tvOS).</li>
+            </ul>
+        </div>
+
+        <div class="card experience">
+            <h3>Game Developer — Connexus Technologies</h3>
+            <p class="date">Jun 2022 – May 2023</p>
+            <ul>
+                <li>Built modular C# gameplay systems.</li>
+                <li>Improved game performance by 20%.</li>
+                <li>Collaborated with designers on scalable mechanics.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2>Projects</h2>
+        <div class="projects">
+
+            <div class="card project">
+                <h3>Liquid Color Sorting</h3>
+                <p>Designed 60 levels and core gameplay mechanics.</p>
+                <a href="https://drive.google.com/file/d/1qwjpyKzALh8XcsQxyQlebz4OcDLhNOH6/view">View Project</a>
+            </div>
+
+            <div class="card project">
+                <h3>AR-PIKO</h3>
+                <p>Location-based AR game with GPS, Mapbox, and REST APIs.</p>
+            </div>
+
+            <div class="card project">
+                <h3>VR – CBRN</h3>
+                <p>Training simulation for radioactive object detection using HDRP.</p>
+            </div>
+
+            <div class="card project">
+                <h3>VR Cinema</h3>
+                <p>VR media streaming app with optimized playback and UI.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>Bachelor in Computer Applications</h3>
+            <p>Capital University of Science and Technology — 2021</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>📧 usama.shafiq1290@gmail.com</p>
+        <p>📞 +92 348 8188610</p>
+        <p>
+            <a href="https://www.linkedin.com/in/usama-shafiq-6ba239150/" target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js">
+    </script>
+    <script>
+        tsParticles.load("particles", {
+            background: {
+                color: "transparent"
+            },
+            fullScreen: false,
+            particles: {
+                number: {
+                    value: 70
+                },
+                color: {
+                    value: "#6c63ff"
+                },
+                size: {
+                    value: 2
+                },
+                opacity: {
+                    value: 0.6
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6
+                },
+                links: {
+                    enable: true,
+                    color: "#6c63ff",
+                    opacity: 0.3,
+                    distance: 120
+                }
+            }
+        });
+    </script>
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        const sections = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+
+</html>
