@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Day57</title>
+</head>
+
+<body>
+    {%for blogspost in post:%}
+    {%if blogspost["id"]==2%}
+    <h1>{{blogspost["title"]}}</h1>
+    <h3>{{blogspost["subtitle"]}}</h3>
+    <p>{{blogspost["body"]}}</p>
+    {%endif%}
+    {% endfor %}
+    <h2>This is the number is we are getting from home plage {{number}}</h2>
+
+</body>
+
+</html>
